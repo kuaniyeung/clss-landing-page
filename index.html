@@ -4,78 +4,212 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>T-A-L-O-CLSS</title>
+    <link rel="stylesheet" type="text/css" href="CSS/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/queries.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:ital,wght@0,100;0,300;0,400;0,700;0,800;1,100;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <title>The Peculiar Life of CLSS</title>
   </head>
   <body>
     <header>
-      <nav>
-        <h1>The Absurd Life of Collin Laurent Silly Stone</h1>
-        <ul>
-          <li><a href="#main">Say Meow</a></li>
-          <li><a href="#talents">Peculiar Talents</a></li>
-          <li><a href="#message-board">Message Board</a></li>
-          <li><a href="#message-form">Send Him a Message</a></li>
-          <li><a href="#thumbs-up">Thumbs up Collector</a></li>
-        </ul>
+      <nav class="nav">
+        <div class="nav__title"><a href="#main">CLSS</a></div>
+        <div class="nav__content">
+          <ul class="nav__list">
+            <li class="nav__list--options">
+              <a href="#about-clss">About Him</a>
+            </li>
+            <li class="nav__list--options"><a href="#talents">Talents</a></li>
+            <li class="nav__list--options">
+              <a href="#message-board">Message Board</a>
+            </li>
+          </ul>
+          <button class="nav__list--button">
+            <a href="#message-form">Post a Message</a>
+          </button>
+        </div>
       </nav>
     </header>
+
     <!-- ref to AirBnB Landing Page -->
+
     <section id="main">
-      <h3>Say Meow to CLSS</h3>
+      <h3>The Peculiar Life of Collin Laurent "Silly" Stone</h3>
       <h2>Daily dose of nonsense to lighten up your day</h2>
       <p>
         From twerking spontaneously to singing and rapping outta nowhere, CLSS
         will make sure to put on a show just for you.
       </p>
       <button>
-        <a href="#contact">Send Him a Message</a>
+        <a href="#message-form">Post a Message</a>
       </button>
     </section>
+
+    <section id="about-clss">
+      <h3>Who is CLSS?</h3>
+
+      <p>"Don't you worry 'bout it!" - CLSS</p>
+
+      <p>
+        You might ask, who is CLSS? Why am I reading this? Well. Let me tell you
+        all about it.
+      </p>
+
+      <p>
+        On one hot summer day in Canada, Collin Laurent "Silly" Stone was
+        born... Just kidding, I ain't about to go from the very beginning. If I
+        do, this website will be too long for me or you to handle. When his
+        bibliography comes out, we'll notify you.
+      </p>
+
+      <p>
+        I met Collin at the right time of his life, where he recently made a big
+        move and went from being a chef to a software engineer. This is not
+        where we go deep into his many life stories, but more of a place where
+        we come to appreciate his awesomeness and peculiarity. Without him, this
+        website simply will not exist. If you have a moment, go leave him a
+        message and give him a thumbs-up.
+      </p>
+    </section>
+
     <section id="talents">
-      <div class="talent-column">
-        <div class="talent-title">Talent 1</div>
+      <h3>CLSS' Many Talents</h3>
+      <div class="talents__column">
+        <div class="talents__title">Pop Daddy, Talk to Me</div>
         <img src="#" alt="face1" />
-        <p class="talent-description">Talent Description 1</p>
-        <div class="talent-score">8/10</div>
+        <p class="talents__description">
+          From Tupac to the Weeknd, Collin can discuss how pop culture changes
+          the world (literally) with you from sun sets to sun rises (if he
+          chooses to). For anyone who is not familiar with pop culture, it's
+          intriguing to listen to all the stories he has to share. And if you
+          are also a big fan, I would say you should be bffs already.
+        </p>
+        <div class="talents__score">9/10</div>
       </div>
-      <div class="talent-column">
-        <div class="talent-title">Talent 2</div>
+      <div class="talents__column">
+        <div class="talents__title">
+          Oh Hey, Wasn't Yesterday Your Birthday?
+        </div>
         <img src="#" alt="face1" />
-        <p class="talent-description">Talent Description 2</p>
-        <div class="talent-score">8/10</div>
+        <p class="talents__description">
+          Other than being exceptionally relevant to pop culture, Collin is also
+          really good with remembering numbers and details. We're not talking
+          about algebra or mental arithemetic, but how he would recall details
+          of a conversation from months ago or cite your birthdate from that one
+          time you mentioned it. It's almost creepy, but nonetheless impressive.
+        </p>
+        <div class="talents__score">9.5/10</div>
       </div>
-      <div class="talent-column">
-        <div class="talent-title">Talent 3</div>
+      <div class="talents__column">
+        <div class="talents__title">Perfect Eggs for Days</div>
         <img src="#" alt="face1" />
-        <p class="talent-description">Talent Description 3</p>
-        <div class="talent-score">8/10</div>
+        <p class="talents__description">
+          Collin is THE egg master. He acquired this talent through many years
+          spent in the kitchen cooking breakfasts and brunches. Perhaps this is
+          not as impressive as the last two, but sometimes all you need is a
+          perfectly fried, poached or scrambled egg that heals the soul. You're
+          lucky if you have tried it.
+        </p>
+        <div class="talents__score">8.5/10</div>
       </div>
     </section>
+
     <section id="message-board">
-        <div class="message">
-            <div class="message-title">Hello Collin!</div>
-            <div class="message-body">You are SOOOO FUNNY HA-HA-HA</div>
-            <div class="messager-name">qtpie</div>
-        </div>
-        <div class="message">
-            <div class="message-title">Hello Collin!</div>
-            <div class="message-body">You are SOOOO FUNNY HA-HA-HA</div>
-            <div class="messager-name">qtpie</div>
-        </div>
-        <div class="message">
-            <div class="message-title">Hello Collin!</div>
-            <div class="message-body">You are SOOOO FUNNY HA-HA-HA</div>
-            <div class="messager-name">qtpie</div>
-        </div>
-        <div class="message">
-            <div class="message-title">Hello Collin!</div>
-            <div class="message-body">You are SOOOO FUNNY HA-HA-HA</div>
-            <div class="messager-name">qtpie</div>
-        </div>
+      <h3>Message Board</h3>
+      <div class="message">
+        <div class="message__title">Hello Collin!</div>
+        <div class="message__body">You are SOOOO FUNNY HA-HA-HA</div>
+        <div class="message__name">qtpie</div>
+      </div>
+      <div class="message">
+        <div class="message__title">Hello Collin!</div>
+        <div class="message__body">You are SOOOO FUNNY HA-HA-HA</div>
+        <div class="message__name">qtpie</div>
+      </div>
+      <div class="message">
+        <div class="message__title">Hello Collin!</div>
+        <div class="message__body">You are SOOOO FUNNY HA-HA-HA</div>
+        <div class="message__name">qtpie</div>
+      </div>
+      <div class="message">
+        <div class="message__title">Hello Collin!</div>
+        <div class="message__body">You are SOOOO FUNNY HA-HA-HA</div>
+        <div class="message__name">qtpie</div>
+      </div>
     </section>
-    <form id="message-form">
-        
-    </form>
-    <section id="thumbs-up"></section>
+
+    <section id="message-form">
+      <form>
+        <p>Send CLSS a message!</p>
+        <div class="message-form__row">
+          <label for="message-form__row--name">
+            Name:<br />
+            <input
+              name="name"
+              id="name-label"
+              type="text"
+              placeholder="Your name"
+              required
+            />
+          </label>
+        </div>
+        <div class="message-form__row">
+          <label for="message-form__row--favourite">
+            What's your favourite talent of Collin's?<br />
+            <select name="fav-talent" id="dropdown" required>
+              <option value="">Pick your fave</option>
+              <option value="#">Pop Daddy, Talk to Me</option>
+              <option value="#">Oh Hey, Wasn't Yesterday Your Birthday?</option>
+              <option value="#">Perfect Eggs for Days</option>
+            </select>
+          </label>
+        </div>
+        <div class="message-form__row">
+          <label for="message-form__row--title">
+            Message Title:<br />
+            <input
+              name="name"
+              id="title-label"
+              type="text"
+              placeholder="Your name"
+              required
+            />
+          </label>
+        </div>
+        <div class="message-form__row">
+          <label for="message-form__row--body">
+            Your message:<br />
+            <textarea
+              name="comment"
+              id="comment-label"
+              type="message"
+              placeholder="What you wanna say to CLSS?"
+              spellcheck="true"
+            ></textarea>
+          </label>
+        </div>
+        <input id="submit-label" name="submit" type="submit" value="Post!" />
+      </form>
+    </section>
+
+    <section id="thumbs-up">
+      <h3>Thumbs up Collector</h3>
+      <img src="#" alt="thumbs-up-icon" />
+      <div>23</div>
+      <i class="fa-sharp fa-regular fa-thumbs-up"></i>
+    </section>
+
+    <footer>
+      <p>© 2023 The Peculiar Life of CLSS. All rights reserved.</p>
+    </footer>
   </body>
+
+  <script
+    src="https://kit.fontawesome.com/2dc3819474.js"
+    crossorigin="anonymous"
+  ></script>
 </html>

@@ -1,0 +1,107 @@
+/*--- VARIABLES ---*/
+
+$color: (
+  primary: #71826c,
+  primary-light: #c8f0d6,
+  secondary: #ffbbc4,
+  secondary-light: #fcccc5,
+  accent: #62f3f5,
+  accent-dark: #6aa3a8,
+  background: #fff,
+);
+
+@function color($color-name) {
+  @return map-get($color, $color-name);
+}
+
+$font-size: (
+  xs: 15px,
+  s: 25px,
+  m: 40px,
+  l: 60px,
+  xl: 75px,
+);
+
+@function font-size($font-size-pixel) {
+  @return map-get($font-size, $font-size-pixel);
+}
+
+$font-weight: (
+  light: 200,
+  regular: 400,
+  medium: 500,
+  bold: 700,
+);
+
+@function font-weight($font-weight-number) {
+  @return map-get($font-weight, $font-weight-number);
+}
+
+$font-family-serif: 'Libre Baskerville', serif;
+$font-family-sans-serif: 'Raleway', sans-serif;
+
+/*--- BASIC SETUP ---*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header,
+body {
+  background: color(background);
+  font-family: $font-family-sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+/* Nav Bar */
+
+.nav {
+  align-items: center;
+  color: color(primary);
+  display: flex;
+
+  .nav__title a:link,
+  .nav__title a:visited {
+    color: color(primary);
+    font-size: font-size(s);
+    font-weight: font-weight(bold);
+    text-decoration: none;
+  }
+
+  .nav__content {
+    display: flex;
+    justify-content: space-between;
+    .nav__list {
+      display: flex;
+
+      .nav__list--options {
+        // display: inline-block;
+      }
+
+      .nav__list--options a:link,
+      .nav__list--options a:visited {
+        color: color(primary);
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+/* Message Board */
+
+.row {
+  font-size: 15px;
+  line-height: 30px;
+  padding: 10px 0;
+  text-align: start;
+}
+
+label {
+  font-weight: 400;
+  letter-spacing: 1px;
+}

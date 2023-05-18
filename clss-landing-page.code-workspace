@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../my-firsts"
+    },
+    {
+      "path": "../Test1 01072023"
+    }
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "clss-landing-page"
+  }
+}

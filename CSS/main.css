@@ -1,0 +1,48 @@
+/*--- VARIABLES ---*/
+/*--- BASIC SETUP ---*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+header,
+body {
+  background: #fff;
+  font-family: "Raleway", sans-serif; }
+
+li {
+  list-style: none; }
+
+/* Nav Bar */
+.nav {
+  align-items: center;
+  color: #71826c;
+  display: flex; }
+  .nav .nav__title a:link,
+  .nav .nav__title a:visited {
+    color: #71826c;
+    font-size: 25px;
+    font-weight: 700;
+    text-decoration: none; }
+  .nav .nav__content {
+    display: flex;
+    justify-content: space-between; }
+    .nav .nav__content .nav__list {
+      display: flex; }
+      .nav .nav__content .nav__list .nav__list--options a:link,
+      .nav .nav__content .nav__list .nav__list--options a:visited {
+        color: #71826c;
+        text-decoration: none; }
+
+/* Message Board */
+.row {
+  font-size: 15px;
+  line-height: 30px;
+  padding: 10px 0;
+  text-align: start; }
+
+label {
+  font-weight: 400;
+  letter-spacing: 1px; }
+
+/*# sourceMappingURL=main.css.map */
