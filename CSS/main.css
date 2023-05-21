@@ -8,31 +8,84 @@
 header,
 body {
   background: #fff;
+  color: #62a384;
   font-family: "Raleway", sans-serif; }
 
 li {
   list-style: none; }
 
+/*--- REUSABLE ---*/
+/* Button */
+.button {
+  background-color: #c1e8d5;
+  border: #62a384;
+  border-radius: 1.5rem;
+  font-size: 15px;
+  padding: 0.5rem 0.8rem; }
+
+.button:link,
+.button:visited {
+  color: #62a384;
+  letter-spacing: 0.05rem;
+  text-decoration: none; }
+
+.button:hover,
+.button:focus {
+  background-color: #fadcd5;
+  color: #a36648 !important;
+  transition: all 0.2s linear; }
+
 /* Nav Bar */
 .nav {
   align-items: center;
-  color: #71826c;
-  display: flex; }
-  .nav .nav__title a:link,
-  .nav .nav__title a:visited {
-    color: #71826c;
+  color: #62a384;
+  display: flex;
+  height: 5rem; }
+  .nav__title a:link, .nav__title a:visited {
+    color: #62a384;
     font-size: 25px;
     font-weight: 700;
+    letter-spacing: 0.2rem;
+    margin: 2rem;
     text-decoration: none; }
-  .nav .nav__content {
-    display: flex;
-    justify-content: space-between; }
-    .nav .nav__content .nav__list {
-      display: flex; }
-      .nav .nav__content .nav__list .nav__list--options a:link,
-      .nav .nav__content .nav__list .nav__list--options a:visited {
-        color: #71826c;
-        text-decoration: none; }
+  .nav__list {
+    display: flex; }
+    .nav__list--options a:link, .nav__list--options a:visited {
+      color: #62a384;
+      letter-spacing: 0.1rem;
+      margin-right: 1.5rem;
+      text-decoration: none; }
+    .nav__list--options a:hover, .nav__list--options a:focus {
+      color: #a36648 !important;
+      transition: all 0.2s linear; }
+  .nav .button {
+    margin-left: auto;
+    margin-right: 1.5rem; }
+
+/* Main */
+.main {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 5rem 3rem; }
+  .main__text {
+    width: 30rem; }
+    .main__text--headline {
+      color: #aa8aeb;
+      margin: 1rem 0;
+      font-weight: 400; }
+    .main__text--slogan {
+      color: #7d60a3;
+      font-size: 40px;
+      margin: 1rem 0; }
+    .main__text--copy {
+      color: #7d60a3;
+      margin: 1rem 0 2rem 0; }
+  .main__image {
+    border-radius: 50%;
+    height: auto;
+    overflow: hidden;
+    width: 20rem; }
 
 /* Message Board */
 .row {

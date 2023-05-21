@@ -1,12 +1,12 @@
 /*--- VARIABLES ---*/
 
 $color: (
-  primary: #71826c,
-  primary-light: #c8f0d6,
-  secondary: #ffbbc4,
-  secondary-light: #fcccc5,
-  accent: #62f3f5,
-  accent-dark: #6aa3a8,
+  primary: #62a384,
+  primary-light: #c1e8d5,
+  secondary: #a36648,
+  secondary-light: #fadcd5,
+  accent: #aa8aeb,
+  accent-dark: #7d60a3,
   background: #fff,
 );
 
@@ -51,11 +51,38 @@ $font-family-sans-serif: 'Raleway', sans-serif;
 header,
 body {
   background: color(background);
+  color: color(primary);
   font-family: $font-family-sans-serif;
 }
 
 li {
   list-style: none;
+}
+
+/*--- REUSABLE ---*/
+
+/* Button */
+
+.button {
+  background-color: color(primary-light);
+  border: color(primary);
+  border-radius: 1.5rem;
+  font-size: font-size(xs);
+  padding: 0.5rem 0.8rem;
+}
+
+.button:link,
+.button:visited {
+  color: color(primary);
+  letter-spacing: 0.05rem;
+  text-decoration: none;
+}
+
+.button:hover,
+.button:focus {
+  background-color: color(secondary-light);
+  color: color(secondary) !important;
+  transition: all 0.2s linear;
 }
 
 /* Nav Bar */
@@ -64,31 +91,76 @@ li {
   align-items: center;
   color: color(primary);
   display: flex;
+  height: 5rem;
 
-  .nav__title a:link,
-  .nav__title a:visited {
+  &__title a:link,
+  &__title a:visited {
     color: color(primary);
     font-size: font-size(s);
     font-weight: font-weight(bold);
+    letter-spacing: 0.2rem;
+    margin: 2rem;
     text-decoration: none;
   }
 
-  .nav__content {
+  &__list {
     display: flex;
-    justify-content: space-between;
-    .nav__list {
-      display: flex;
 
-      .nav__list--options {
-        // display: inline-block;
-      }
-
-      .nav__list--options a:link,
-      .nav__list--options a:visited {
-        color: color(primary);
-        text-decoration: none;
-      }
+    &--options a:link,
+    &--options a:visited {
+      color: color(primary);
+      letter-spacing: 0.1rem;
+      margin-right: 1.5rem;
+      text-decoration: none;
     }
+
+    &--options a:hover,
+    &--options a:focus {
+      color: color(secondary) !important;
+      transition: all 0.2s linear;
+    }
+  }
+
+  .button {
+    margin-left: auto;
+    margin-right: 1.5rem;
+  }
+}
+
+/* Main */
+
+.main {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 5rem 3rem;
+
+  &__text {
+    width: 30rem;
+
+    &--headline {
+      color: color(accent);
+      margin: 1rem 0;
+      font-weight: font-weight(regular);
+    }
+
+    &--slogan {
+      color: color(accent-dark);
+      font-size: font-size(m);
+      margin: 1rem 0;
+    }
+
+    &--copy {
+      color: color(accent-dark);
+      margin: 1rem 0 2rem 0;
+    }
+  }
+
+  &__image {
+    border-radius: 50%;
+    height: auto;
+    overflow: hidden;
+    width: 20rem;
   }
 }
 
