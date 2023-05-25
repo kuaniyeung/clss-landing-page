@@ -19,7 +19,7 @@ li {
 .button {
   background-color: #c1e8d5;
   border: #62a384;
-  border-radius: 1.5rem;
+  border-radius: 30% 50% / 75% 30%;
   font-size: 15px;
   padding: 0.5rem 0.8rem; }
 
@@ -32,8 +32,19 @@ li {
 .button:hover,
 .button:focus {
   background-color: #fadcd5;
+  border-radius: 25% 65% / 35% 45%;
   color: #a36648 !important;
   transition: all 0.2s linear; }
+
+.section {
+  margin: 5rem 3rem; }
+
+.section-title {
+  color: #aa8aeb;
+  display: inline-block;
+  font-size: 75px;
+  margin: 0 -4rem;
+  opacity: 20%; }
 
 /* Nav Bar */
 .nav {
@@ -66,10 +77,9 @@ li {
 .main {
   align-items: center;
   display: flex;
-  justify-content: space-between;
-  margin: 5rem 3rem; }
+  justify-content: space-between; }
   .main__text {
-    width: 30rem; }
+    width: 50vw; }
     .main__text--headline {
       color: #aa8aeb;
       margin: 1rem 0;
@@ -81,11 +91,26 @@ li {
     .main__text--copy {
       color: #7d60a3;
       margin: 1rem 0 2rem 0; }
-  .main__image {
-    border-radius: 50%;
+  .main__img {
+    border-radius: 30% 60% 25% 70%;
     height: auto;
-    overflow: hidden;
-    width: 20rem; }
+    transition: border-radius 1s;
+    width: 22rem; }
+  .main__img:hover, .main__img:focus {
+    border-radius: 50% 35% / 60% 40%; }
+
+/* About CLSS */
+.about-clss__column {
+  align-items: center;
+  display: flex;
+  margin: 2rem; }
+  .about-clss__column--img {
+    height: 100%;
+    object-fit: contain; }
+  .about-clss__column--copy-paragraph {
+    margin: 2rem;
+    height: 100%;
+    object-fit: contain; }
 
 /* Message Board */
 .row {
