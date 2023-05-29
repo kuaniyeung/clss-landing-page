@@ -61,6 +61,21 @@ li {
 
 /*--- REUSABLE ---*/
 
+/* Column sections */
+
+.section {
+  margin: 5rem;
+}
+
+.section-title {
+  color: color(accent);
+  display: inline-block;
+  font-family: $font-family-serif;
+  font-size: font-size(xl);
+  margin: 0 -6rem;
+  opacity: 20%;
+}
+
 /* Button */
 
 .button {
@@ -84,18 +99,6 @@ li {
   border-radius: 25% 65% / 35% 45%;
   color: color(secondary) !important;
   transition: all 0.2s linear;
-}
-
-.section {
-  margin: 5rem 3rem;
-}
-
-.section-title {
-  color: color(accent);
-  display: inline-block;
-  font-size: font-size(xl);
-  margin: 0 -4rem;
-  opacity: 20%;
 }
 
 /* Nav Bar */
@@ -145,13 +148,15 @@ li {
 .main {
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 
   &__text {
     width: 50vw;
 
     &--headline {
       color: color(accent);
+      font-family: $font-family-serif;
+      font-style: italic;
       margin: 1rem 0;
       font-weight: font-weight(regular);
     }
@@ -169,15 +174,19 @@ li {
   }
 
   &__img {
-    border-radius: 30% 60% 25% 70%;
+    animation: morph_1 10s linear infinite alternate;
+    border-radius: 40% 60% 50% 35% / 70% 25% 65% 40%;
     height: auto;
-    transition: border-radius 1s;
     width: 22rem;
   }
+}
 
-  &__img:hover,
-  &__img:focus {
-    border-radius: 50% 35% / 60% 40%;
+@keyframes morph_1 {
+  0% {
+    border-radius: 40% 60% 50% 35% / 70% 25% 65% 40%;
+  }
+  100% {
+    border-radius: 40% 60%;
   }
 }
 
@@ -187,18 +196,81 @@ li {
   &__column {
     align-items: center;
     display: flex;
-    margin: 2rem;
+    justify-content: space-around;
+    margin: 2rem 0;
 
     &--img {
-      height: 100%;
-      object-fit: contain;
+      animation: morph_2 10s linear infinite alternate;
+      border-radius: 25% 75% 45% 50% / 50% 25% 70% 45%;
+      height: auto;
+      width: 22rem;
     }
 
     &--copy {
+      margin-left: 3rem;
+      width: 50vw;
+
       &-paragraph {
-        margin: 2rem;
+        margin: 2rem 0;
         height: 100%;
+        line-height: 1.5;
         object-fit: contain;
+      }
+    }
+  }
+}
+
+@keyframes morph_2 {
+  0% {
+    border-radius: 25% 75% 45% 50% / 50% 25% 70% 45%;
+  }
+  100% {
+    border-radius: 35% 70%;
+  }
+}
+
+/* CLSS Talents */
+
+.talents {
+  &__column {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+
+    &--title {
+      color: color(accent);
+      font-size: font-size(m);
+      font-style: italic;
+      margin-top: 2rem;
+    }
+
+    &--copy {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+
+      &-icon {
+        color: color(secondary-light);
+        font-size: font-size(xl) * 4;
+        margin-left: 3rem;
+        opacity: 30%;
+        width: 15vw;
+        z-index: -1;
+      }
+
+      &-description {
+        color: color(secondary);
+        line-height: 1.5;
+        margin: 2rem;
+        width: 40vw;
+      }
+
+      &-score {
+        color: color(accent-dark);
+        font-size: font-size(s);
+        font-weight: font-weight(medium);
+        width: 15vw;
       }
     }
   }
