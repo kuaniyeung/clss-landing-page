@@ -70,7 +70,7 @@ li {
       text-decoration: none; }
     .nav__list--options a:hover, .nav__list--options a:focus {
       color: #a36648 !important;
-      transition: all 0.2s linear; }
+      transition: all 1s linear; }
   .nav .button {
     margin-left: auto;
     margin-right: 1.5rem; }
@@ -165,14 +165,74 @@ li {
       width: 15vw; }
 
 /* Message Board */
-.row {
-  font-size: 15px;
-  line-height: 30px;
-  padding: 10px 0;
-  text-align: start; }
+.msg-board__msg {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-gap: 1.5rem;
+  margin: 2rem 0; }
+  .msg-board__msg--card {
+    animation: morph_3 10s linear infinite alternate;
+    border: solid 0.3rem;
+    border-color: #fadcd5;
+    border-radius: 40% 60% 50% 35% / 70% 25% 65% 40%;
+    height: 17rem;
+    padding: 3rem; }
+    .msg-board__msg--card-title {
+      color: #aa8aeb;
+      font-weight: 700;
+      letter-spacing: 0.1rem;
+      margin-bottom: 0.5rem; }
+    .msg-board__msg--card-name {
+      font-style: italic;
+      margin-bottom: 0.5rem; }
+    .msg-board__msg--card-copy {
+      color: #7d60a3;
+      font-family: "Libre Baskerville", serif;
+      height: 7rem; }
 
-label {
-  font-weight: 400;
-  letter-spacing: 1px; }
+@keyframes morph_3 {
+  0% {
+    border-radius: 40% 60% 50% 35% / 70% 25% 65% 40%; }
+  100% {
+    border-radius: 70% 25% 65% 40% / 40% 60% 50% 35%; } }
+/* Message Form */
+.msg-form__body {
+  margin: 0 30%; }
+  .msg-form__body--row {
+    text-align: start;
+    margin: 2rem 0;
+    letter-spacing: 0.1rem; }
+    .msg-form__body--row-label {
+      margin-bottom: 0.5rem; }
+    .msg-form__body--row-input {
+      border: solid 0.2rem #fadcd5;
+      border-radius: 1rem;
+      font-family: "Raleway", sans-serif;
+      font-size: 15px;
+      letter-spacing: 0.1rem;
+      padding: 0.5rem;
+      width: 100%; }
+    .msg-form__body--row-input::placeholder {
+      color: #a36648; }
+    .msg-form__body--row-input:hover, .msg-form__body--row-input:focus {
+      border-color: #a36648;
+      transition: all 2s; }
+    .msg-form__body--row-copy {
+      height: 7rem;
+      resize: none; }
+  .msg-form__body--submit {
+    background-color: #fadcd5;
+    border: solid 0.2rem #fadcd5;
+    border-radius: 1rem;
+    color: #fff;
+    font-family: "Raleway", sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.1rem;
+    padding: 0.5rem;
+    width: 10rem; }
+  .msg-form__body--submit:hover, .msg-form__body--submit:focus {
+    background-color: #a36648;
+    border-color: #a36648;
+    transition: all 2s; }
 
 /*# sourceMappingURL=main.css.map */

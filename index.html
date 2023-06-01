@@ -25,11 +25,11 @@
           </li>
           <li class="nav__list--options"><a href="#talents">Talents</a></li>
           <li class="nav__list--options">
-            <a href="#message-board">Message Board</a>
+            <a href="#msg-board">Message Board</a>
           </li>
         </ul>
 
-        <a href="#message-form" class="button">Post a Message</a>
+        <a href="#msg-form" class="button">Post a Message</a>
       </nav>
     </header>
 
@@ -46,14 +46,14 @@
           will make sure to put on a show just for you.
         </p>
 
-        <a href="#message-form" class="button">Post a Message</a>
+        <a href="#msg-form" class="button">Post a Message</a>
       </div>
 
       <img class="main__img" src="src/Collinbb.jpg" alt="Collin Portrait" />
     </section>
 
     <section id="about-clss" class="about-clss section">
-      <h3 class="about-clss__title section-title">Who is CLSS?</h3>
+      <h3 class="section-title">Who is CLSS?</h3>
       <div class="about-clss__column">
         <img
           class="about-clss__column--img"
@@ -90,12 +90,12 @@
     </section>
 
     <section id="talents" class="talents section">
-      <h3 class="talents__title section-title">CLSS' Many Talents</h3>
+      <h3 class="section-title">CLSS' Many Talents</h3>
 
       <div class="talents__column">
         <div class="talents__column--title">Pop Daddy, Talk to Me</div>
         <div class="talents__column--copy">
-          <i class="fa-solid fa-compact-disc talents__column--copy-icon"></i>
+          <i class="fa-solid fa-guitar talents__column--copy-icon"></i>
           <p class="talents__column--copy-description">
             From Tupac to the Weeknd, Collin can discuss how pop culture changes
             the world (literally) with you from sun sets to sun rises (if he
@@ -104,7 +104,7 @@
             are also a big fan, I would say you should be bffs already.
           </p>
           <div class="talents__column--copy-score">
-            Impressiveness:<br />9/10
+            Impressiveness:<br />9.5/10
           </div>
         </div>
       </div>
@@ -125,7 +125,7 @@
           </p>
           <div class="talents__column--copy-score">
             Impressiveness:<br />
-            9.5/10
+            10/10
           </div>
         </div>
       </div>
@@ -141,87 +141,108 @@
             You're lucky if you have tried it.
           </p>
           <div class="talents__column--copy-score">
-            Impressiveness:<br />8.5/10
+            Impressiveness:<br />9/10
           </div>
         </div>
       </div>
     </section>
 
-    <section id="message-board" class="message-board section">
-      <h3 class="message-board__title section-title">Message Board</h3>
-      <div class="message">
-        <div class="message__title">Hello Collin!</div>
-        <div class="message__body">You are SOOOO FUNNY HA-HA-HA</div>
-        <div class="message__name">qtpie</div>
-      </div>
-      <div class="message">
-        <div class="message__title">Hello Collin!</div>
-        <div class="message__body">You are SOOOO FUNNY HA-HA-HA</div>
-        <div class="message__name">qtpie</div>
-      </div>
-      <div class="message">
-        <div class="message__title">Hello Collin!</div>
-        <div class="message__body">You are SOOOO FUNNY HA-HA-HA</div>
-        <div class="message__name">qtpie</div>
-      </div>
-      <div class="message">
-        <div class="message__title">Hello Collin!</div>
-        <div class="message__body">You are SOOOO FUNNY HA-HA-HA</div>
-        <div class="message__name">qtpie</div>
+    <section id="msg-board" class="msg-board section">
+      <h3 class="section-title">Message Board</h3>
+
+      <div class="msg-board__msg">
+        <div class="msg-board__msg--card">
+          <div class="msg-board__msg--card-title">Hello Collin!</div>
+          <div class="msg-board__msg--card-name">qtpie says:</div>
+          <div class="msg-board__msg--card-copy">
+            You are SOOOO FUNNY HA-HA-HA
+          </div>
+        </div>
+
+        <div class="msg-board__msg--card">
+          <div class="msg-board__msg--card-title">Hello Collin!</div>
+          <div class="msg-board__msg--card-name">qtpie says:</div>
+          <div class="msg-board__msg--card-copy">
+            You are SOOOO FUNNY HA-HA-HA
+          </div>
+        </div>
+
+        <div class="msg-board__msg--card">
+          <div class="msg-board__msg--card-title">Hello Collin!</div>
+          <div class="msg-board__msg--card-name">qtpie says:</div>
+          <div class="msg-board__msg--card-copy">
+            You are SOOOO FUNNY HA-HA-HA
+          </div>
+        </div>
+
+        <div class="msg-board__msg--card">
+          <div class="msg-board__msg--card-title">Hello Collin!</div>
+          <div class="msg-board__msg--card-name">qtpie says:</div>
+          <div class="msg-board__msg--card-copy">
+            You are SOOOO FUNNY HA-HA-HA
+          </div>
+        </div>
+
+        <div class="msg-board__msg--card">
+          <div class="msg-board__msg--card-title">Hello Collin!</div>
+          <div class="msg-board__msg--card-name">qtpie says:</div>
+          <div class="msg-board__msg--card-copy">
+            You are so funny, I am so happy to have met you! You are also the best hahahaha LOVE YA -Your FAV hehehe
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="message-form" class="message-board section">
+    <section id="msg-form" class="msg-form section">
       <form>
-        <h3 class="message-form__title section-title">Send CLSS a message!</h3>
-        <div class="message-form__row">
-          <label for="message-form__row--name">
-            Name:<br />
-            <input
-              name="name"
-              id="name-label"
-              type="text"
-              placeholder="Your name"
-              required
-            />
-          </label>
+        <h3 class="section-title">Send CLSS a message!</h3>
+        <div class="msg-form__body">
+          <div class="msg-form__body--row">
+            <label for="msg-form__body--row-name">
+              <div class="msg-form__body--row-label">Name:<br /></div>
+
+              <input
+                name="name"
+                id="name-label"
+                class="msg-form__body--row-input"
+                type="text"
+                placeholder="What's your name?"
+                required
+              />
+            </label>
+          </div>
+
+          <div class="msg-form__body--row">
+            <label for="msg-form__body--row-title">
+              <div class="msg-form__body--row-label">Message Title:<br /></div>
+              <input
+                name="name"
+                id="title-label"
+                class="msg-form__body--row-input"
+                type="text"
+                placeholder="Sum it up!"
+                required
+              />
+            </label>
+          </div>
+
+          <div class="msg-form__body--row">
+            <label for="msg-form__body--row-copy">
+              <div class="msg-form__body--row-label">Your message:<br /></div>
+
+              <textarea
+                name="comment"
+                id="comment-label"
+                class="msg-form__body--row-input msg-form__body--row-copy"
+                type="message"
+                placeholder="Drop your message here (100 characters max)"
+                spellcheck="true"
+                required
+              ></textarea>
+            </label>
+          </div>
+          <input id="submit-label" class="msg-form__body--submit" name="submit" type="submit" value="Post!" />
         </div>
-        <div class="message-form__row">
-          <label for="message-form__row--favourite">
-            What's your favourite talent of Collin's?<br />
-            <select name="fav-talent" id="dropdown" required>
-              <option value="">Pick your fave</option>
-              <option value="#">Pop Daddy, Talk to Me</option>
-              <option value="#">Oh Hey, Wasn't Yesterday Your Birthday?</option>
-              <option value="#">Perfect Eggs for Days</option>
-            </select>
-          </label>
-        </div>
-        <div class="message-form__row">
-          <label for="message-form__row--title">
-            Message Title:<br />
-            <input
-              name="name"
-              id="title-label"
-              type="text"
-              placeholder="Your name"
-              required
-            />
-          </label>
-        </div>
-        <div class="message-form__row">
-          <label for="message-form__row--body">
-            Your message:<br />
-            <textarea
-              name="comment"
-              id="comment-label"
-              type="message"
-              placeholder="What you wanna say to CLSS?"
-              spellcheck="true"
-            ></textarea>
-          </label>
-        </div>
-        <input id="submit-label" name="submit" type="submit" value="Post!" />
       </form>
     </section>
 
