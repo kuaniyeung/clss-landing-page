@@ -330,9 +330,10 @@ li {
     margin: 0 30%;
 
     &--row {
-      text-align: start;
-      margin: 2rem 0;
+      font-weight: font-weight(bold);
       letter-spacing: 0.1rem;
+      margin: 2rem 0;
+      text-align: start;
 
       &-label {
         margin-bottom: 0.5rem;
@@ -350,15 +351,19 @@ li {
 
       &-input::placeholder {
         color: color(secondary);
+        opacity: 30%;
       }
 
       &-input:hover,
       &-input:focus {
+        color: color(secondary);
         border-color: color(secondary);
-        transition: all 2s;
+        outline: none;
+        transition: all 1s;
       }
 
       &-copy {
+        color: color(secondary);
         height: 7rem;
         resize: none;
       }
@@ -381,6 +386,34 @@ li {
       background-color: color(secondary);
       border-color: color(secondary);
       transition: all 2s;
+    }
+  }
+}
+
+/* Thumbs Up Collector */
+
+.thumbs-up {
+  &__body {
+    font-size: font-size(l);
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 10vw;
+
+    &--count {
+    }
+
+    &--icon {
+      background-color: color(secondary-light);
+      border: solid 0.3rem color(secondary-light);
+      border-radius: 5rem;
+      cursor: pointer;
+      display: inline-block;
+      padding: 0.5rem;
+    }
+
+    &--icon:link, &--icon:visited {
+      color: color(accent);
+      text-decoration: none;
     }
   }
 }
