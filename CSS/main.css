@@ -244,17 +244,36 @@ li {
 .thumbs-up__body {
   font-size: 60px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
   margin: 2rem 10vw; }
+  .thumbs-up__body--number {
+    font-size: 150px; }
+  .thumbs-up__body--count {
+    width: 35vw; }
   .thumbs-up__body--icon {
     background-color: #fadcd5;
     border: solid 0.3rem #fadcd5;
     border-radius: 5rem;
+    box-shadow: 0 0.5rem 0rem #a36648;
     cursor: pointer;
-    display: inline-block;
-    padding: 0.5rem; }
+    display: flex;
+    align-items: center;
+    height: 7rem;
+    padding: 0.5rem 2rem;
+    width: auto; }
+    .thumbs-up__body--icon-text {
+      font-size: 40px;
+      margin-left: 1rem; }
   .thumbs-up__body--icon:link, .thumbs-up__body--icon:visited {
-    color: #aa8aeb;
+    color: #a36648;
     text-decoration: none; }
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 8rem; }
 
 /*# sourceMappingURL=main.css.map */

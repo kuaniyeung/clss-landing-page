@@ -396,24 +396,50 @@ li {
   &__body {
     font-size: font-size(l);
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     margin: 2rem 10vw;
 
+    &--number {
+      font-size: font-size(xl) *2;
+    }
+
     &--count {
+      width: 35vw;
     }
 
     &--icon {
       background-color: color(secondary-light);
       border: solid 0.3rem color(secondary-light);
       border-radius: 5rem;
+      box-shadow: 0 0.5rem 0rem color(secondary);
       cursor: pointer;
-      display: inline-block;
-      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      height: 7rem;
+      padding: 0.5rem 2rem;
+      width: auto;
+
+      &-text {
+        font-size: font-size(m);
+        margin-left: 1rem;
+      }
     }
 
-    &--icon:link, &--icon:visited {
-      color: color(accent);
+    &--icon:link,
+    &--icon:visited {
+      color: color(secondary);
       text-decoration: none;
     }
   }
+}
+
+
+/* Footer */
+
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 8rem;
 }
