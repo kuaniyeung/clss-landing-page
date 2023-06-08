@@ -7,7 +7,7 @@ $color: (
   secondary-light: #fadcd5,
   accent: #aa8aeb,
   accent-dark: #7d60a3,
-  background: #fff,
+  background: hsl(0, 0%, 100%),
 );
 
 @function color($color-name) {
@@ -81,7 +81,7 @@ li {
 .button {
   background-color: color(primary-light);
   border: color(primary);
-  border-radius: 30% 50% / 75% 30%;
+  border-radius: 67% 33% 40% 60% / 42% 26% 74% 58%;
   font-size: font-size(xs);
   padding: 0.5rem 0.8rem;
 }
@@ -96,9 +96,28 @@ li {
 .button:hover,
 .button:focus {
   background-color: color(secondary-light);
-  border-radius: 25% 65% / 35% 45%;
+  border-radius: 23% 77% 40% 60% / 42% 57% 43% 58%;
   color: color(secondary) !important;
   transition: all 0.2s linear;
+}
+
+/* Background */
+
+.drips {
+  left: 0;
+  position: absolute;
+  position: fixed;
+  top: 0;
+  transform: rotate(180deg);
+  z-index: 1;
+
+  &__drip {
+    opacity: 0.4;
+
+    &--white {
+      opacity: 1;
+    }
+  }
 }
 
 /* Nav Bar */
@@ -108,6 +127,11 @@ li {
   color: color(primary);
   display: flex;
   height: 5rem;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
 
   &__title a:link,
   &__title a:visited {
@@ -149,6 +173,7 @@ li {
   align-items: center;
   display: flex;
   justify-content: space-around;
+  margin-top: 10rem;
 
   &__text {
     width: 50vw;
@@ -286,7 +311,6 @@ li {
     margin: 2rem 0;
 
     &--card {
-      animation: morph_3 10s linear infinite alternate;
       border: solid 0.3rem;
       border-color: color(secondary-light);
       border-radius: 40% 60% 50% 35% / 70% 25% 65% 40%;
@@ -314,14 +338,6 @@ li {
   }
 }
 
-@keyframes morph_3 {
-  0% {
-    border-radius: 40% 60% 50% 35% / 70% 25% 65% 40%;
-  }
-  100% {
-    border-radius: 70% 25% 65% 40% / 40% 60% 50% 35%;
-  }
-}
 
 /* Message Form */
 
@@ -401,39 +417,54 @@ li {
     margin: 2rem 10vw;
 
     &--number {
-      font-size: font-size(xl) *2;
+      font-size: font-size(xl) * 2;
     }
 
     &--count {
       width: 35vw;
     }
 
-    &--icon {
-      background-color: color(secondary-light);
-      border: solid 0.3rem color(secondary-light);
-      border-radius: 5rem;
-      box-shadow: 0 0.5rem 0rem color(secondary);
-      cursor: pointer;
+    &--button {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      height: 7rem;
-      padding: 0.5rem 2rem;
-      width: auto;
+
+      &-icon {
+        background-color: color(secondary-light);
+        border: solid 0.3rem color(secondary-light);
+        border-radius: 5rem;
+        box-shadow: 0 0.5rem 0rem color(secondary);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        height: 7rem;
+        padding: 0.5rem 2rem;
+      }
+
+      &-icon:link,
+      &-icon:visited {
+        color: color(secondary);
+        text-decoration: none;
+      }
 
       &-text {
         font-size: font-size(m);
-        margin-left: 1rem;
+        margin-left: 0.5rem;
       }
-    }
 
-    &--icon:link,
-    &--icon:visited {
-      color: color(secondary);
-      text-decoration: none;
+      &-copy {
+        color: color(secondary);
+        font-size: font-size(xs);
+        margin-top: 1rem;
+      }
     }
   }
 }
 
+.clicked {
+  transform: translateY(0.5rem);
+  box-shadow: none !important;
+}
 
 /* Footer */
 
