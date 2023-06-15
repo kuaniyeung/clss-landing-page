@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="CSS/main.css" />
-    <link rel="stylesheet" type="text/css" href="css/queries.css" />
+    <link rel="stylesheet" type="text/css" href="./CSS/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,7 +12,40 @@
       rel="stylesheet"
     />
     <title>The Peculiar Life of CLSS</title>
+
+    <script
+      defer
+      src="https://kit.fontawesome.com/2dc3819474.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script defer type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js';
+
+      // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+      import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js';
+
+      // Add Firebase products that you want to use
+      import { getAuth } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js';
+      import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
+
+      const firebaseConfig = {
+        apiKey: 'AIzaSyD63JTPEgbSsHNbmUzZfHlhbOpwe-YnVwk',
+        authDomain: 'clss-landing-page.firebaseapp.com',
+        databaseURL: 'https://clss-landing-page-default-rtdb.firebaseio.com',
+        projectId: 'clss-landing-page',
+        storageBucket: 'clss-landing-page.appspot.com',
+        messagingSenderId: '829445182588',
+        appId: '1:829445182588:web:895b3f337ac4322e4565f9',
+        measurementId: 'G-660QTBN8K1',
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+    </script>
+    <!-- <script defer type="module" src="./index.js"></script> -->
   </head>
+
   <body>
     <svg
       class="drips"
@@ -106,7 +138,7 @@
         <a href="#msg-form" class="button">Post a Message</a>
       </div>
 
-      <img class="main__img" src="src/Collinbb.jpg" alt="Collin Portrait" />
+      <img class="main__img" src="./src/Collinbb.jpg" alt="Collin Portrait" />
     </section>
 
     <section id="about-clss" class="about-clss section">
@@ -114,12 +146,12 @@
       <div class="about-clss__column">
         <img
           class="about-clss__column--img"
-          src="src/Collinbb2.jpg"
+          src="./src/Collinbb2.jpg"
           alt="Collin Portrait 2"
         />
         <div class="about-clss__column--copy">
           <p class="about-clss__column--copy-paragraph">
-            <b>"Don't you worry 'bout it!" - CLSS</b>
+            <b>"Don't worry 'bout it!" - CLSS</b>
           </p>
 
           <p class="about-clss__column--copy-paragraph">
@@ -207,6 +239,12 @@
     <section id="msg-board" class="msg-board section">
       <h3 class="section-title">Message Board</h3>
 
+      <div class="msg-board__no-msg">
+        No messages yet. Leave CLSS a message down below! <br /><i
+          class="fa-solid fa-angles-down msg-board__no-msg--icon"
+        ></i>
+      </div>
+
       <div class="msg-board__msg">
         <div class="msg-board__msg--card">
           <div class="msg-board__msg--card-title">Hello Collin!</div>
@@ -214,6 +252,7 @@
           <div class="msg-board__msg--card-copy">
             You are SOOOO FUNNY HA-HA-HA
           </div>
+          <div class="msg-board__msg--card-date">1/23/2010</div>
         </div>
 
         <div class="msg-board__msg--card">
@@ -222,6 +261,7 @@
           <div class="msg-board__msg--card-copy">
             You are SOOOO FUNNY HA-HA-HA
           </div>
+          <div class="msg-board__msg--card-date">1/23/2010</div>
         </div>
 
         <div class="msg-board__msg--card">
@@ -230,6 +270,7 @@
           <div class="msg-board__msg--card-copy">
             You are SOOOO FUNNY HA-HA-HA
           </div>
+          <div class="msg-board__msg--card-date">1/23/2010</div>
         </div>
 
         <div class="msg-board__msg--card">
@@ -238,6 +279,7 @@
           <div class="msg-board__msg--card-copy">
             You are SOOOO FUNNY HA-HA-HA
           </div>
+          <div class="msg-board__msg--card-date">1/23/2010</div>
         </div>
 
         <div class="msg-board__msg--card">
@@ -247,6 +289,7 @@
             You are so funny, I am so happy to have met you! You are also the
             best hahahaha LOVE YA -Your FAV hehehe
           </div>
+          <div class="msg-board__msg--card-date">1/23/2010</div>
         </div>
       </div>
     </section>
@@ -331,11 +374,7 @@
     <footer class="footer">
       <p>© 2023 The Peculiar Life of CLSS. All rights reserved.</p>
     </footer>
-  </body>
 
-  <script
-    src="https://kit.fontawesome.com/2dc3819474.js"
-    crossorigin="anonymous"
-  ></script>
-  <script src="./app.js"></script>
+    <script src="./app.js"></script>
+  </body>
 </html>
