@@ -50,6 +50,7 @@ $font-family-sans-serif: 'Raleway', sans-serif;
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 10rem;
 }
 
 header,
@@ -97,8 +98,7 @@ li {
   text-decoration: none;
 }
 
-.button:hover,
-.button:focus {
+.button:hover {
   background-color: color(secondary-light);
   border-radius: 23% 77% 40% 60% / 42% 57% 43% 58%;
   color: color(secondary) !important;
@@ -109,10 +109,13 @@ li {
 
 .drips {
   left: 0;
+  margin-top: -2rem;
+  pointer-events: none;
   position: absolute;
   position: fixed;
   top: 0;
   transform: rotate(180deg);
+  transform: scaleY(-1);
   z-index: 1;
 
   &__drip {
@@ -309,6 +312,7 @@ li {
 
 .msg-board {
   &__no-msg {
+    display: none;
     font-size: font-size(s);
     font-style: italic;
     margin: 5rem 0;
@@ -321,7 +325,8 @@ li {
 
   &__msg {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 18rem));
+    grid-auto-rows: 20rem;
     grid-gap: 1.5rem;
     margin: 2rem 0;
 
@@ -329,7 +334,6 @@ li {
       border: solid 0.3rem;
       border-color: color(secondary-light);
       border-radius: 35% 5%;
-      height: 20rem;
       padding: 2.5rem 3rem;
       position: relative;
 
@@ -358,6 +362,47 @@ li {
       }
     }
   }
+
+  &__pagination {
+    color: color(primary);
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+
+    &--btn {
+      background-color: color(primary-light);
+      border: color(primary);
+      border-radius: 67% 33% 40% 60% / 42% 26% 74% 58%;
+      display: none;
+      font-size: font-size(xs);
+      letter-spacing: 0.1rem;
+      margin: 1rem;
+      padding: 0.5rem 1rem;
+    }
+
+    &--btn:link,
+    &--btn:visited {
+      letter-spacing: 0.05rem;
+      text-decoration: none;
+    }
+
+    &--btn:hover {
+      background-color: color(secondary-light);
+      border-radius: 23% 77% 40% 60% / 42% 57% 43% 58%;
+      color: color(secondary);
+      cursor: pointer;
+      transition: all 0.2s linear;
+    }
+
+    &--btn:disabled {
+      background-color: color(primary-light);
+      border: color(primary);
+      border-radius: 67% 33% 40% 60% / 42% 26% 74% 58%;
+      color: color(primary);
+      cursor: not-allowed;
+      opacity: 50%;
+    }
+  }
 }
 
 /* Message Form */
@@ -378,6 +423,7 @@ li {
       &-input {
         border: solid 0.2rem color(secondary-light);
         border-radius: 1rem;
+        color: color(secondary);
         font-family: $font-family-sans-serif;
         font-size: font-size(xs);
         letter-spacing: 0.1rem;
