@@ -200,15 +200,17 @@ li {
     margin-top: 1rem; }
 .msg-board__msg {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 18rem));
+  font-size: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 15rem));
   grid-auto-rows: 20rem;
-  grid-gap: 1.5rem;
+  grid-gap: 1rem;
+  justify-content: center;
   margin: 2rem 0; }
   .msg-board__msg--card {
     border: solid 0.3rem;
     border-color: #fadcd5;
-    border-radius: 35% 5%;
-    padding: 2.5rem 3rem;
+    border-radius: 15% 5%;
+    padding: 1.5rem;
     position: relative; }
     .msg-board__msg--card-title {
       color: #aa8aeb;
@@ -259,14 +261,16 @@ li {
 
 /* Message Form */
 .msg-form__body {
-  margin: 0 30%; }
-  .msg-form__body--row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10%; }
+  .msg-form__body--column-row {
     letter-spacing: 0.1rem;
     margin: 2rem 0;
     text-align: start; }
-    .msg-form__body--row-label {
+    .msg-form__body--column-row-label {
       margin-bottom: 0.5rem; }
-    .msg-form__body--row-input {
+    .msg-form__body--column-row-input {
       border: solid 0.2rem #fadcd5;
       border-radius: 1rem;
       color: #a36648;
@@ -274,34 +278,37 @@ li {
       font-size: 15px;
       letter-spacing: 0.1rem;
       padding: 0.5rem;
-      width: 100%; }
-    .msg-form__body--row-input::placeholder {
+      width: 25vw; }
+    .msg-form__body--column-row-input::placeholder {
       color: #a36648;
       opacity: 30%; }
-    .msg-form__body--row-input:hover, .msg-form__body--row-input:focus {
+    .msg-form__body--column-row-input:hover, .msg-form__body--column-row-input:focus {
       color: #a36648;
       border-color: #a36648;
       outline: none;
       transition: all 1s; }
-    .msg-form__body--row-copy {
+    .msg-form__body--column-row-copy {
       color: #a36648;
-      height: 7rem;
-      resize: none; }
-  .msg-form__body--submit {
+      height: 8.6rem;
+      resize: none;
+      width: 40vw; }
+  .msg-form__body--column-submit {
     background-color: #fadcd5;
     border: solid 0.2rem #fadcd5;
     border-radius: 1rem;
     color: white;
     cursor: pointer;
+    float: right;
     font-family: "Raleway", sans-serif;
     font-size: 15px;
     letter-spacing: 0.1rem;
     padding: 0.5rem;
+    margin-right: 10%;
     width: 10rem; }
-  .msg-form__body--submit:hover, .msg-form__body--submit:focus {
+  .msg-form__body--column-submit:hover, .msg-form__body--column-submit:focus {
     background-color: #a36648;
     border-color: #a36648;
-    transition: all 2s; }
+    transition: all 1s; }
 
 /* Thumbs Up Collector */
 .thumbs-up__body {

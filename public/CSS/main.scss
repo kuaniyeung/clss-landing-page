@@ -311,6 +311,7 @@ li {
 /* Message Board */
 
 .msg-board {
+
   &__no-msg {
     display: none;
     font-size: font-size(s);
@@ -325,16 +326,18 @@ li {
 
   &__msg {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 18rem));
+    font-size: font-size(xs);
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 15rem));
     grid-auto-rows: 20rem;
-    grid-gap: 1.5rem;
+    grid-gap: 1rem;
+    justify-content: center;
     margin: 2rem 0;
 
     &--card {
       border: solid 0.3rem;
       border-color: color(secondary-light);
-      border-radius: 35% 5%;
-      padding: 2.5rem 3rem;
+      border-radius: 15% 5%;
+      padding: 1.5rem;
       position: relative;
 
       &-title {
@@ -409,66 +412,73 @@ li {
 
 .msg-form {
   &__body {
-    margin: 0 30%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10%;
 
-    &--row {
-      letter-spacing: 0.1rem;
-      margin: 2rem 0;
-      text-align: start;
+    &--column {
+      &-row {
+        letter-spacing: 0.1rem;
+        margin: 2rem 0;
+        text-align: start;
 
-      &-label {
-        margin-bottom: 0.5rem;
+        &-label {
+          margin-bottom: 0.5rem;
+        }
+
+        &-input {
+          border: solid 0.2rem color(secondary-light);
+          border-radius: 1rem;
+          color: color(secondary);
+          font-family: $font-family-sans-serif;
+          font-size: font-size(xs);
+          letter-spacing: 0.1rem;
+          padding: 0.5rem;
+          width: 25vw;
+        }
+
+        &-input::placeholder {
+          color: color(secondary);
+          opacity: 30%;
+        }
+
+        &-input:hover,
+        &-input:focus {
+          color: color(secondary);
+          border-color: color(secondary);
+          outline: none;
+          transition: all 1s;
+        }
+
+        &-copy {
+          color: color(secondary);
+          height: 8.6rem;
+          resize: none;
+          width: 40vw;
+        }
       }
 
-      &-input {
+      &-submit {
+        background-color: color(secondary-light);
         border: solid 0.2rem color(secondary-light);
         border-radius: 1rem;
-        color: color(secondary);
+        color: color(background);
+        cursor: pointer;
+        float: right;
         font-family: $font-family-sans-serif;
         font-size: font-size(xs);
         letter-spacing: 0.1rem;
         padding: 0.5rem;
-        width: 100%;
+        margin-right: 10%;
+        width: 10rem;
       }
 
-      &-input::placeholder {
-        color: color(secondary);
-        opacity: 30%;
-      }
-
-      &-input:hover,
-      &-input:focus {
-        color: color(secondary);
+      &-submit:hover,
+      &-submit:focus {
+        background-color: color(secondary);
         border-color: color(secondary);
-        outline: none;
         transition: all 1s;
       }
-
-      &-copy {
-        color: color(secondary);
-        height: 7rem;
-        resize: none;
-      }
-    }
-
-    &--submit {
-      background-color: color(secondary-light);
-      border: solid 0.2rem color(secondary-light);
-      border-radius: 1rem;
-      color: color(background);
-      cursor: pointer;
-      font-family: $font-family-sans-serif;
-      font-size: font-size(xs);
-      letter-spacing: 0.1rem;
-      padding: 0.5rem;
-      width: 10rem;
-    }
-
-    &--submit:hover,
-    &--submit:focus {
-      background-color: color(secondary);
-      border-color: color(secondary);
-      transition: all 2s;
     }
   }
 }

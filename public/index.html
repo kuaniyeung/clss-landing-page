@@ -741,60 +741,67 @@
       <form id="msg-form">
         <h3 class="section-title">Send CLSS a message!</h3>
         <div class="msg-form__body">
-          <div class="msg-form__body--row">
-            <label for="name-label">
-              <div class="msg-form__body--row-label">Name:<br /></div>
+          <div class="msg-form__body--column">
+            <div class="msg-form__body--column-row">
+              <label for="name-label">
+                <div class="msg-form__body--column-row-label">Name:<br /></div>
+                <input
+                  name="name"
+                  id="name-label"
+                  class="msg-form__body--column-row-input"
+                  type="text"
+                  placeholder="What's your name?"
+                  maxlength="20"
+                  required
+                />
+              </label>
+            </div>
 
-              <input
-                name="name"
-                id="name-label"
-                class="msg-form__body--row-input"
-                type="text"
-                placeholder="What's your name?"
-                maxlength="10"
-                required
-              />
-            </label>
+            <div class="msg-form__body--column-row">
+              <label for="title-label">
+                <div class="msg-form__body--column-row-label">
+                  Message Title:<br />
+                </div>
+                <input
+                  name="title"
+                  id="title-label"
+                  class="msg-form__body--column-row-input"
+                  type="text"
+                  placeholder="Sum it up!"
+                  maxlength="40"
+                  required
+                />
+              </label>
+            </div>
           </div>
 
-          <div class="msg-form__body--row">
-            <label for="title-label">
-              <div class="msg-form__body--row-label">Message Title:<br /></div>
-              <input
-                name="title"
-                id="title-label"
-                class="msg-form__body--row-input"
-                type="text"
-                placeholder="Sum it up!"
-                maxlength="40"
-                required
-              />
-            </label>
-          </div>
+          <div class="msg-form__body--column">
+            <div class="msg-form__body--column-row">
+              <label for="message-label">
+                <div class="msg-form__body--column-row-label">
+                  Your message:<br />
+                </div>
 
-          <div class="msg-form__body--row">
-            <label for="message-label">
-              <div class="msg-form__body--row-label">Your message:<br /></div>
-
-              <textarea
-                name="message"
-                id="message-label"
-                class="msg-form__body--row-input msg-form__body--row-copy"
-                placeholder="Drop your message here (120 characters max)"
-                maxlength="120"
-                spellcheck="true"
-                required
-              ></textarea>
-            </label>
+                <textarea
+                  name="message"
+                  id="message-label"
+                  class="msg-form__body--column-row-input msg-form__body--column-row-copy"
+                  placeholder="Drop your message here (150 characters max)"
+                  maxlength="150"
+                  spellcheck="true"
+                  required
+                ></textarea>
+              </label>
+            </div>
           </div>
-          <input
-            id="submit-label"
-            class="msg-form__body--submit"
-            name="submit"
-            type="submit"
-            value="Post!"
-          />
         </div>
+        <input
+          id="submit-label"
+          class="msg-form__body--column-submit"
+          name="submit"
+          type="submit"
+          value="Post!"
+        />
       </form>
     </section>
 
