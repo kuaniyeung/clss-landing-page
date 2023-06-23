@@ -1,0 +1,84 @@
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  /* Background */
+
+  /* Nav Bar */
+
+  /* Main */
+
+  /* About CLSS */
+
+  /* CLSS Talents */
+
+  /* Message Board */
+
+  /* Message Form */
+
+  /* Thumbs Up Collector */
+
+  /* Footer */
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  /* Background */
+
+  /* Nav Bar */
+
+  /* Main */
+
+  /* About CLSS */
+
+  /* CLSS Talents */
+
+  /* Message Board */
+
+  /* Message Form */
+
+  /* Thumbs Up Collector */
+
+  /* Footer */
+}
+
+@media only screen and (max-width: 992px) {
+  /* Nav Bar */
+
+  .nav {
+    &__list {
+      display: block;
+    }
+
+    &__icon {
+      &--open {
+        display: block;
+      }
+
+      &--close {
+        display: none;
+      }
+    }
+  }
+}
+
+/* Small-Medium devices (portrait tablets, landscape tablets and large phones, 600px and up) */
+@media only screen and (min-width: 576px) {
+  /* Message Board */
+  .msg-board {
+    &__msg {
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      grid-auto-rows: 15rem;
+    }
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 576px) {
+  /* Message Board */
+  .msg-board {
+    &__msg {
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      grid-auto-rows: 11rem;
+    }
+  }
+}
+

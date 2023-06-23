@@ -19,7 +19,6 @@ import {
   startAt,
   Timestamp,
   updateDoc,
-  where,
 } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
 
 const firebaseConfig = {
@@ -41,11 +40,13 @@ const db = getFirestore(app);
 
 // DOM Elements
 
+const navList = document.getElementById('nav__list');
+const navOpenIcon = document.querySelector('.nav__icon--open');
+const navCloseIcon = document.querySelector('.nav__icon--close');
 const messageForm = document.getElementById('msg-form');
 const nameInput = document.getElementById('name-label');
 const titleInput = document.getElementById('title-label');
 const messageInput = document.getElementById('message-label');
-const messageBoardSession = document.getElementById('msg-board');
 const messageBoard = document.getElementById('msg-board__msg-cards');
 const noMessageBanner = document.getElementById('msg-board__banner');
 const prevButton = document.getElementById('msg-board__pagination--prev');
@@ -55,7 +56,6 @@ const thumbsUpButton = document.getElementById('thumbs-up__add');
 
 // *** MESSAGE BOARD SESSION *** //
 const messageCollectionRef = collection(db, 'messages');
-
 let oldestMessage;
 let newestMessage;
 let newestMessageData;
@@ -63,7 +63,7 @@ let lastMessageInPrevQuery;
 let firstMessageInPrevPage;
 let firstMessageInUI;
 let numOfMessagesInQuery;
-const pageSize = 5;
+let pageSize = 10;
 
 // Add new message to DB
 async function addMessageToDB(message, title, name) {
@@ -103,8 +103,7 @@ async function submitMessage(e) {
   // Add message to DB
   addMessageToDB(newMessageContent, newTitle, newName);
 
-  // Create message DOM element
-
+  // List out new message + 4 more
   try {
     const newestMessagesQuery = query(
       messageCollectionRef,
@@ -115,7 +114,14 @@ async function submitMessage(e) {
     newestMessage = newestMessagesFromDB.docs[0];
     newestMessageData = newestMessagesFromDB.docs[0].data();
 
-    // Check if there are only or more than 5 messages
+    messageBoard.innerHTML = '';
+
+    newestMessagesFromDB.forEach((doc) => {
+      const message = doc.data();
+      addMessageToDOM(message);
+    });
+
+    // Show buttons if there are more than 5 messages
     if (
       newestMessagesFromDB.docs.length == pageSize &&
       newestMessagesFromDB.docs[pageSize - 1].id !== oldestMessage.id
@@ -132,12 +138,6 @@ async function submitMessage(e) {
     console.error('Error getting documents: ', e);
   }
 
-  if (messageBoard.childElementCount == pageSize) {
-    messageBoard.lastChild.remove();
-  }
-
-  addMessagesToDOM(newestMessageData, 'before');
-
   // Reset input field
   nameInput.value = '';
   titleInput.value = '';
@@ -147,7 +147,7 @@ async function submitMessage(e) {
 }
 
 // Create message DOM element
-function addMessagesToDOM(message, position) {
+function addMessageToDOM(message) {
   const messageCard = document.createElement('div');
   messageCard.classList.add('msg-board__msg--card');
   messageCard.innerHTML = `
@@ -159,22 +159,17 @@ function addMessagesToDOM(message, position) {
                             <div class="msg-board__msg--card-date">${message.date}</div>
                           `;
 
-  if (position == 'before') {
-    messageBoard.insertBefore(messageCard, messageBoard.firstChild);
+  messageBoard.appendChild(messageCard);
 
-    return;
-  }
-
-  if (position == 'after') {
-    messageBoard.appendChild(messageCard);
-
-    return;
-  }
+  return;
 }
 
 // *** Pagination *** //
 
 async function getNewestAndOldestMessages() {
+  checkPageSize();
+
+  console.log(pageSize);
   // Query to find the newest message
   const newestMessageQuery = query(
     messageCollectionRef,
@@ -222,6 +217,10 @@ async function getNewestAndOldestMessages() {
 
 // Display first page of messages to UI
 async function displayMessages() {
+  checkPageSize();
+  messageBoard.innerHTML = '';
+  console.log('Content cleared');
+
   // Initial query to get the first page of documents
   const firstPageQuery = query(
     messageCollectionRef,
@@ -238,21 +237,14 @@ async function displayMessages() {
       return;
     }
 
-    // Less than 5 messages in DB
-    if (messagesFromDB.docs.length < pageSize) {
+    // Less than or only one page of messages in DB
+    if (
+      messagesFromDB.docs.length < pageSize ||
+      messagesFromDB.docs[pageSize - 1].id == oldestMessage.id
+    ) {
       messagesFromDB.forEach((doc) => {
         const message = doc.data();
-        addMessagesToDOM(message, 'after');
-      });
-
-      return;
-    }
-
-    // Only 5 messages in DB
-    if (messagesFromDB.docs[pageSize - 1].id == oldestMessage.id) {
-      messagesFromDB.forEach((doc) => {
-        const message = doc.data();
-        addMessagesToDOM(message, 'after');
+        addMessageToDOM(message);
       });
 
       return;
@@ -265,7 +257,7 @@ async function displayMessages() {
 
     messagesFromDB.forEach((doc) => {
       const message = doc.data();
-      addMessagesToDOM(message, 'after');
+      addMessageToDOM(message);
     });
 
     prevButton.style.display = 'block';
@@ -281,6 +273,8 @@ async function displayMessages() {
 }
 
 async function getFirstMessageInPrevPage() {
+  checkPageSize();
+
   const firstMessageInPrevPageQuery = query(
     messageCollectionRef,
     orderBy('createdAt', 'asc'),
@@ -298,6 +292,7 @@ async function getFirstMessageInPrevPage() {
 // Fetch next Pages of Messages
 async function fetchNextPage(e) {
   e.preventDefault();
+  checkPageSize();
 
   // Query to use when there was a prev page
   const nextPageQuery = query(
@@ -328,7 +323,7 @@ async function fetchNextPage(e) {
 
       nextPageRef.forEach((doc) => {
         const message = doc.data();
-        addMessagesToDOM(message, 'after');
+        addMessageToDOM(message);
       });
 
       // Enable Prev Button
@@ -350,7 +345,7 @@ async function fetchNextPage(e) {
 
     nextPageRef.forEach((doc) => {
       const message = doc.data();
-      addMessagesToDOM(message, 'after');
+      addMessageToDOM(message);
     });
 
     return;
@@ -362,6 +357,7 @@ async function fetchNextPage(e) {
 // Fetch previous Pages of Messages
 async function fetchPrevPage(e) {
   e.preventDefault();
+  checkPageSize();
 
   // Query to use for prev after last page
   const firstPageQuery = query(
@@ -388,7 +384,7 @@ async function fetchPrevPage(e) {
 
       prevPageRef.forEach((doc) => {
         const message = doc.data();
-        addMessagesToDOM(message, 'after');
+        addMessageToDOM(message);
       });
 
       // Enable Prev Button
@@ -411,7 +407,7 @@ async function fetchPrevPage(e) {
 
     prevPageRef.forEach((doc) => {
       const message = doc.data();
-      addMessagesToDOM(message, 'after');
+      addMessageToDOM(message);
     });
 
     return;
@@ -453,6 +449,11 @@ async function addThumbsupToDB() {
 // Add Thumbsup to UI
 function addThumbsUp(e) {
   e.preventDefault();
+  thumbsUpButton.classList.add('clicked');
+
+  setTimeout(() => {
+    thumbsUpButton.classList.remove('clicked');
+  }, 100);
 
   // Add count to DB
   addThumbsupToDB();
@@ -468,18 +469,69 @@ function checkUI() {
   messageInput.value = '';
 }
 
+// Check window size for # of messages displayed
+function checkPageSize() {
+  console.log(window.innerWidth);
+  if (window.innerWidth > 1423) {
+    pageSize = 10;
+    console.log(pageSize);
+  }
+
+  if (window.innerWidth <= 1423) {
+    pageSize = 8;
+    console.log(pageSize);
+  }
+
+  if (window.innerWidth <= 1167) {
+    pageSize = 6;
+    console.log(pageSize);
+  }
+
+  return pageSize;
+}
+
+// Resizing Event for # of displayed messages
+let isScrolling;
+
+function resizeEvent() {
+  window.clearTimeout(isScrolling);
+  console.log('Resizing');
+
+  isScrolling = setTimeout(function () {
+    console.log('Stopped resizing');
+    displayMessages();
+  }, 100);
+}
+
+// Nav Bar Media Query
+
+function clickOpen() {
+navOpenIcon.style.display = 'none';
+navCloseIcon.style.display = 'block';
+navList.style.display = 'block';
+}
+
+function clickClose() {
+
+}
+
 // Initialize App
 function init() {
   // Event Listeners
   messageForm.addEventListener('submit', submitMessage);
-  document.addEventListener('DOMContentLoaded', getNewestAndOldestMessages);
+  // document.addEventListener('DOMContentLoaded', getNewestAndOldestMessages);
   document.addEventListener('dataReady', displayMessages);
   prevButton.addEventListener('click', fetchPrevPage);
   nextButton.addEventListener('click', fetchNextPage);
   thumbsUpButton.addEventListener('click', addThumbsUp);
   document.addEventListener('DOMContentLoaded', getAndDisplayThumbsUpCount);
+  window.addEventListener('resize', resizeEvent);
+  navOpenIcon.addEventListener('click', clickOpen);
+  navCloseIcon.addEventListener('click', clickClose);
 
   checkUI();
+  // checkPageSize();
+  getNewestAndOldestMessages();
 }
 
 init();

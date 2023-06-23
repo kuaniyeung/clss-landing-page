@@ -15,6 +15,7 @@ $color: (
 }
 
 $font-size: (
+  xxs: 12px,
   xs: 15px,
   s: 25px,
   m: 40px,
@@ -50,7 +51,7 @@ $font-family-sans-serif: 'Raleway', sans-serif;
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 10rem;
+  scroll-padding-top: 10vh;
 }
 
 header,
@@ -109,9 +110,8 @@ li {
 
 .drips {
   left: 0;
-  margin-top: -2rem;
+  // margin-top: -2rem;
   pointer-events: none;
-  position: absolute;
   position: fixed;
   top: 0;
   transform: rotate(180deg);
@@ -151,7 +151,9 @@ li {
   }
 
   &__list {
+    align-items: center;
     display: flex;
+    flex-grow: 1;
 
     &--options a:link,
     &--options a:visited {
@@ -168,9 +170,41 @@ li {
     }
   }
 
-  .button {
+  &__icon {
     margin-left: auto;
     margin-right: 1.5rem;
+
+    &--open,
+    &--close {
+      border-radius: 15% 5%;
+      height: 2.5rem;
+      fill: color(primary);
+      font-size: font-size(m);
+      padding: 0.3rem;
+      width: 2.5rem;
+    }
+
+    &--open {
+      display: none;
+      transform: scaleX(-1);
+    }
+
+    &--close {
+      display: none;
+    }
+
+    &--open:hover,
+    &--close:hover {
+      background-color: color(secondary-light);
+      border: solid color(secondary-light) 0.1rem;
+      fill: color(secondary);
+      transition: all 0.2s linear;
+    }
+  }
+
+  .button {
+    align-self: flex-end;
+    margin-left: auto;
   }
 }
 
@@ -293,13 +327,14 @@ li {
 
       &-description {
         color: color(secondary);
-        line-height: 1.5;
+        line-height: 2;
         margin: 2rem;
         width: 40vw;
       }
 
       &-score {
         color: color(accent-dark);
+        font-family: $font-family-serif;
         font-size: font-size(s);
         font-weight: font-weight(medium);
         width: 15vw;
@@ -311,7 +346,6 @@ li {
 /* Message Board */
 
 .msg-board {
-
   &__no-msg {
     display: none;
     font-size: font-size(s);
@@ -328,7 +362,7 @@ li {
     display: grid;
     font-size: font-size(xs);
     grid-template-columns: repeat(auto-fit, minmax(15rem, 15rem));
-    grid-auto-rows: 20rem;
+    grid-auto-rows: 15rem;
     grid-gap: 1rem;
     justify-content: center;
     margin: 2rem 0;
@@ -337,7 +371,7 @@ li {
       border: solid 0.3rem;
       border-color: color(secondary-light);
       border-radius: 15% 5%;
-      padding: 1.5rem;
+      padding: 1rem;
       position: relative;
 
       &-title {
@@ -355,13 +389,14 @@ li {
       &-copy {
         color: color(accent-dark);
         font-family: $font-family-serif;
-        height: 9.5rem;
+        font-size: font-size(xxs);
+        line-height: 1.5;
         margin-bottom: 0.5rem;
       }
 
       &-date {
         position: absolute;
-        bottom: 2.5rem;
+        bottom: 1rem;
       }
     }
   }
@@ -428,7 +463,7 @@ li {
 
         &-input {
           border: solid 0.2rem color(secondary-light);
-          border-radius: 1rem;
+          border-radius: 1rem 0.5rem;
           color: color(secondary);
           font-family: $font-family-sans-serif;
           font-size: font-size(xs);
@@ -461,7 +496,7 @@ li {
       &-submit {
         background-color: color(secondary-light);
         border: solid 0.2rem color(secondary-light);
-        border-radius: 1rem;
+        border-radius: 1rem 0.5rem;
         color: color(background);
         cursor: pointer;
         float: right;
@@ -487,18 +522,18 @@ li {
 
 .thumbs-up {
   &__body {
-    font-size: font-size(l);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2rem 10vw;
+    font-size: font-size(m);
+    margin: 2rem 0;
 
     &--number {
-      font-size: font-size(xl) * 2;
+      font-size: font-size(l) * 2;
+      margin-bottom: 2rem;
+      text-align: center;
     }
 
     &--count {
-      width: 35vw;
+      margin-bottom: 2rem;
+      text-align: center;
     }
 
     &--button {
@@ -539,8 +574,8 @@ li {
 }
 
 .clicked {
-  transform: translateY(0.5rem);
   box-shadow: none !important;
+  transform: translateY(0.5rem);
 }
 
 /* Footer */
