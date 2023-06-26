@@ -170,7 +170,6 @@ function addMessageToDOM(message) {
 async function getNewestAndOldestMessages() {
   checkPageSize();
 
-  console.log(pageSize);
   // Query to find the newest message
   const newestMessageQuery = query(
     messageCollectionRef,
@@ -220,7 +219,6 @@ async function getNewestAndOldestMessages() {
 async function displayMessages() {
   checkPageSize();
   messageBoard.innerHTML = '';
-  console.log('Content cleared');
 
   // Initial query to get the first page of documents
   const firstPageQuery = query(
