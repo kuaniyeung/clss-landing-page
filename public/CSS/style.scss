@@ -402,7 +402,6 @@ li {
   }
 
   &__pagination {
-    color: color(primary);
     display: flex;
     justify-content: center;
     margin: 2rem 0;
@@ -411,6 +410,7 @@ li {
       background-color: color(primary-light);
       border: color(primary);
       border-radius: 67% 33% 40% 60% / 42% 26% 74% 58%;
+      color: color(primary);
       display: none;
       font-size: font-size(xs);
       letter-spacing: 0.1rem;

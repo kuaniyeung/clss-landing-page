@@ -252,7 +252,6 @@ li {
       position: absolute;
       bottom: 1rem; }
 .msg-board__pagination {
-  color: #62a384;
   display: flex;
   justify-content: center;
   margin: 2rem 0; }
@@ -260,6 +259,7 @@ li {
     background-color: #c1e8d5;
     border: #62a384;
     border-radius: 67% 33% 40% 60% / 42% 26% 74% 58%;
+    color: #62a384;
     display: none;
     font-size: 15px;
     letter-spacing: 0.1rem;
