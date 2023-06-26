@@ -40,6 +40,7 @@ const db = getFirestore(app);
 
 // DOM Elements
 
+const colourBlock = document.getElementById('colour-block');
 const navList = document.getElementById('nav__list');
 const navOpenIcon = document.querySelector('.nav__icon--open');
 const navCloseIcon = document.querySelector('.nav__icon--close');
@@ -63,7 +64,7 @@ let lastMessageInPrevQuery;
 let firstMessageInPrevPage;
 let firstMessageInUI;
 let numOfMessagesInQuery;
-let pageSize = 10;
+let pageSize = 8;
 
 // Add new message to DB
 async function addMessageToDB(message, title, name) {
@@ -471,34 +472,24 @@ function checkUI() {
 
 // Check window size for # of messages displayed
 function checkPageSize() {
-  console.log(window.innerWidth);
-  if (window.innerWidth > 1423) {
-    pageSize = 10;
-    console.log(pageSize);
-  }
-
   if (window.innerWidth <= 1423) {
     pageSize = 8;
-    console.log(pageSize);
   }
 
   if (window.innerWidth <= 1167) {
     pageSize = 6;
-    console.log(pageSize);
   }
 
   return pageSize;
 }
 
 // Resizing Event for # of displayed messages
-let isScrolling;
+let isResizing;
 
 function resizeEvent() {
-  window.clearTimeout(isScrolling);
-  console.log('Resizing');
+  window.clearTimeout(isResizing);
 
-  isScrolling = setTimeout(function () {
-    console.log('Stopped resizing');
+  isResizing = setTimeout(function () {
     displayMessages();
   }, 100);
 }
@@ -506,20 +497,30 @@ function resizeEvent() {
 // Nav Bar Media Query
 
 function clickOpen() {
-navOpenIcon.style.display = 'none';
-navCloseIcon.style.display = 'block';
-navList.style.display = 'block';
+  navOpenIcon.classList.add('inactive');
+  navCloseIcon.classList.add('active');
+  navList.classList.add('open');
+  colourBlock.classList.add('open');
 }
 
 function clickClose() {
+  navOpenIcon.classList.remove('inactive');
+  navCloseIcon.classList.remove('active');
+  navList.classList.remove('open');
+  navList.classList.add('transition');
+  colourBlock.classList.remove('open');
+  colourBlock.classList.add('transition');
 
+  setTimeout(() => {
+    navList.classList.remove('transition');
+    colourBlock.classList.remove('transition');
+  }, 1000);
 }
 
 // Initialize App
 function init() {
   // Event Listeners
   messageForm.addEventListener('submit', submitMessage);
-  // document.addEventListener('DOMContentLoaded', getNewestAndOldestMessages);
   document.addEventListener('dataReady', displayMessages);
   prevButton.addEventListener('click', fetchPrevPage);
   nextButton.addEventListener('click', fetchNextPage);
@@ -530,7 +531,6 @@ function init() {
   navCloseIcon.addEventListener('click', clickClose);
 
   checkUI();
-  // checkPageSize();
   getNewestAndOldestMessages();
 }
 

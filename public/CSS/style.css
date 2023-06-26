@@ -37,7 +37,7 @@ li {
   border: #62a384;
   border-radius: 67% 33% 40% 60% / 42% 26% 74% 58%;
   font-size: 15px;
-  padding: 0.5rem 0.8rem; }
+  padding: 0.5rem 1rem; }
 
 .button:link,
 .button:visited {
@@ -51,7 +51,7 @@ li {
   color: #a36648 !important;
   transition: all 0.2s linear; }
 
-/* Background */
+/* Nav Background */
 .drips {
   left: 0;
   pointer-events: none;
@@ -70,8 +70,9 @@ li {
   align-items: center;
   color: #62a384;
   display: flex;
-  height: 5rem;
+  height: auto;
   left: 0;
+  padding: 1rem 0;
   position: fixed;
   top: 0;
   width: 100%;
@@ -86,18 +87,19 @@ li {
   .nav__list {
     align-items: center;
     display: flex;
-    flex-grow: 1; }
+    flex: 1 1; }
     .nav__list--options a:link, .nav__list--options a:visited {
       color: #62a384;
       letter-spacing: 0.1rem;
       margin-right: 1.5rem;
       text-decoration: none; }
     .nav__list--options a:hover, .nav__list--options a:focus {
-      color: #a36648 !important;
+      color: #a36648;
       transition: all 0.5s linear; }
   .nav__icon {
     margin-left: auto;
-    margin-right: 1.5rem; }
+    margin-right: 1.5rem;
+    width: auto; }
     .nav__icon--open, .nav__icon--close {
       border-radius: 15% 5%;
       height: 2.5rem;
@@ -112,7 +114,6 @@ li {
       display: none; }
     .nav__icon--open:hover, .nav__icon--close:hover {
       background-color: #fadcd5;
-      border: solid #fadcd5 0.1rem;
       fill: #a36648;
       transition: all 0.2s linear; }
   .nav .button {
@@ -144,7 +145,7 @@ li {
     animation: morph_1 10s linear infinite alternate;
     border-radius: 40% 60% 50% 35% / 70% 25% 65% 40%;
     height: auto;
-    width: 22rem; }
+    width: 25vw; }
 
 @keyframes morph_1 {
   0% {
@@ -161,7 +162,7 @@ li {
     animation: morph_2 10s linear infinite alternate;
     border-radius: 25% 75% 45% 50% / 50% 25% 70% 45%;
     height: auto;
-    width: 22rem; }
+    width: 25vw; }
   .about-clss__column--copy {
     margin-left: 3rem;
     width: 50vw; }
@@ -230,7 +231,7 @@ li {
   .msg-board__msg--card {
     border: solid 0.3rem;
     border-color: #fadcd5;
-    border-radius: 15% 5%;
+    border-radius: 1.5rem 0.5rem;
     padding: 1rem;
     position: relative; }
     .msg-board__msg--card-title {
@@ -376,7 +377,8 @@ li {
 .footer {
   display: flex;
   justify-content: center;
+  letter-spacing: 0.1rem;
   margin-bottom: 2rem;
   margin-top: 8rem; }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=style.css.map */

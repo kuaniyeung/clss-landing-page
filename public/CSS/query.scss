@@ -1,66 +1,439 @@
+/*--- VARIABLES ---*/
+
+$color: (
+  primary: #62a384,
+  primary-light: #c1e8d5,
+  secondary: #a36648,
+  secondary-light: #fadcd5,
+  accent: #aa8aeb,
+  accent-dark: #7d60a3,
+  background: hsl(0, 0%, 100%),
+);
+
+@function color($color-name) {
+  @return map-get($color, $color-name);
+}
+
+$font-size: (
+  xxs: 12px,
+  xs: 15px,
+  s: 25px,
+  m: 40px,
+  l: 60px,
+  xl: 75px,
+);
+
+@function font-size($font-size-pixel) {
+  @return map-get($font-size, $font-size-pixel);
+}
+
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-  /* Background */
+  //** REUSABLE **//
 
-  /* Nav Bar */
+  .section {
+    width: 70rem;
+    margin: 5rem auto;
+  }
 
-  /* Main */
+  /* Nav Background */
 
-  /* About CLSS */
-
-  /* CLSS Talents */
-
-  /* Message Board */
-
-  /* Message Form */
-
-  /* Thumbs Up Collector */
-
-  /* Footer */
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  /* Background */
-
-  /* Nav Bar */
+  .drips {
+    margin-top: -1rem;
+  }
 
   /* Main */
 
-  /* About CLSS */
-
-  /* CLSS Talents */
-
-  /* Message Board */
-
-  /* Message Form */
-
-  /* Thumbs Up Collector */
-
-  /* Footer */
-}
-
-@media only screen and (max-width: 992px) {
-  /* Nav Bar */
-
-  .nav {
-    &__list {
-      display: block;
+  .main {
+    margin-top: 10rem;
+    &__text {
+      width: 35rem;
     }
+    &__img {
+      width: 22rem;
+    }
+  }
 
-    &__icon {
-      &--open {
-        display: block;
-      }
+  /* Message Form */
 
-      &--close {
-        display: none;
+  .msg-form {
+    &__body {
+      margin: 0 5% !important;
+
+      &--column {
+        &-row {
+          &-input {
+            width: 25rem !important;
+          }
+
+          &-copy {
+            width: 35rem !important;
+          }
+        }
+
+        &-submit {
+          margin-right: 5% !important;
+        }
       }
     }
   }
 }
 
-/* Small-Medium devices (portrait tablets, landscape tablets and large phones, 600px and up) */
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  /* Message Form */
+
+  .msg-form {
+    &__body {
+      margin: 0 3%;
+
+      &--column {
+        &-row {
+          &-input {
+            width: 32vw;
+          }
+
+          &-copy {
+            width: 40vw;
+          }
+        }
+
+        &-submit {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and down) */
+@media only screen and (max-width: 992px) {
+  /* Nav Bar */
+
+  .colour-block {
+    background: linear-gradient(
+      to right,
+      hsla(0, 0%, 100%, 0),
+      hsla(0, 0%, 100%, 0.4) 10%,
+      hsla(0, 0%, 100%, 1) 20%,
+      hsl(0, 0%, 100%)
+    );
+    height: 100%;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 20rem;
+    z-index: 1;
+  }
+
+  .open {
+    pointer-events: none;
+    opacity: 1 !important;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .transition {
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .nav {
+    justify-content: space-between;
+    pointer-events: none;
+    &__title {
+      align-self: self-start;
+      pointer-events: auto;
+    }
+
+    &__list {
+      display: block;
+      flex: auto;
+      opacity: 0;
+      pointer-events: auto;
+      position: relative;
+      text-align: end;
+      width: 100%;
+
+      &--options {
+        margin: 1rem;
+      }
+
+      &--options a:link,
+      &--options a:visited {
+        margin-right: 1rem;
+      }
+
+      .button {
+        margin-right: 1rem;
+        padding: 0.3rem 0.8rem;
+      }
+    }
+
+    &__icon {
+      align-self: self-start;
+      pointer-events: auto;
+
+      &--open {
+        display: block;
+        transition: display 0.5s ease-in-out;
+      }
+
+      &--close {
+        display: none;
+        transition: display 0.5s ease-in-out;
+      }
+
+      .active {
+        display: block;
+      }
+
+      .inactive {
+        display: none;
+      }
+    }
+  }
+
+  /* Main */
+
+  .main {
+    &__text {
+      width: 50vw;
+
+      &--headline {
+        margin: 1rem 0;
+      }
+
+      &--slogan {
+        font-size: font-size(m);
+        margin: 1rem 0;
+      }
+
+      &--copy {
+        margin: 1rem 0 2rem 0;
+      }
+    }
+    &__img {
+      width: 20vw;
+    }
+  }
+
+  /* Message Form */
+
+  .msg-form {
+    &__body {
+      margin: 0;
+
+      &--column {
+        &-row {
+          &-input {
+            width: 33vw;
+          }
+
+          &-copy {
+            width: 42vw;
+          }
+        }
+
+        &-submit {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  /* CLSS Talents */
+  .talents {
+    &__column {
+      &--title {
+        font-size: font-size(s);
+      }
+
+      &--copy {
+        flex-direction: column;
+        position: relative;
+        left: 0;
+
+        &-icon {
+          font-size: font-size(xl) * 3;
+          margin-left: 0;
+          margin-top: 3rem;
+          position: absolute;
+          right: 0;
+          width: auto;
+        }
+
+        &-description {
+          font-size: font-size(xs);
+          margin: 2rem 0;
+          width: 80%;
+        }
+
+        &-score {
+          font-size: font-size(xs);
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+
+/* Small - Medium devices (Tablets and phones, 768px and down) */
+@media only screen and (max-width: 768px) {
+  body,
+  .button {
+    font-size: font-size(xxs);
+  }
+
+  .section-title {
+    font-size: font-size(l);
+    margin: 0 -4rem;
+  }
+
+  /* Nav Background */
+
+  .drips {
+    width: 150%;
+  }
+
+  /* Nav Bar */
+
+  .colour-block {
+    width: 16rem;
+  }
+
+  .nav {
+    &__list {
+      &--options {
+        margin: 0.5rem;
+      }
+
+      &--options a:link,
+      &--options a:visited {
+        margin-right: 0.5rem;
+      }
+
+      .button {
+        margin: 1rem 0.5rem 0 0 !important;
+      }
+    }
+
+    &__icon {
+      &--open,
+      &--close {
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+  }
+
+  /* Main */
+
+  .main {
+    flex-direction: column;
+
+    &__text {
+      letter-spacing: 0.05rem;
+      margin-top: 2rem;
+      width: 100%;
+
+      &--slogan {
+        font-size: font-size(s);
+      }
+    }
+
+    &__img {
+      align-self: end;
+      margin-top: -1rem;
+      width: 60%;
+    }
+  }
+
+  /* About CLSS */
+
+  .about-clss {
+    &__column {
+      margin: 2rem 0;
+      flex-direction: column;
+
+      &--img {
+        width: 60%;
+      }
+
+      &--copy {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  /* CLSS Talents */
+
+  .talents {
+    &__column {
+      &--copy {
+        &-icon {
+          font-size: font-size(xl) * 2;
+          margin-top: 7rem;
+        }
+        &-description {
+          width: 100%;
+        }
+
+        &-score {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// For when the messages becomes one column due to grid sizing (670px and down)
+@media only screen and (max-width: 670px) {
+  /* Column sections */
+
+  .section {
+    margin: 3rem;
+  }
+
+  /* Message Board */
+
+  .msg-board {
+    &__msg {
+      display: block;
+      grid-template-columns: none;
+      grid-auto-rows: none;
+
+      &--card {
+        margin: 1rem 0;
+
+        &-copy {
+          height: auto;
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+  }
+
+  /* Message Form */
+
+  .msg-form {
+    &__body {
+      flex-direction: column;
+
+      &--column {
+        &-row {
+          margin: 1rem 0;
+
+          &-input {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Small- Medium devices (portrait tablets, landscape tablets and large phones, 576px and up) */
 @media only screen and (min-width: 576px) {
   /* Message Board */
   .msg-board {
@@ -70,15 +443,3 @@
     }
   }
 }
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 576px) {
-  /* Message Board */
-  .msg-board {
-    &__msg {
-      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-      grid-auto-rows: 11rem;
-    }
-  }
-}
-
