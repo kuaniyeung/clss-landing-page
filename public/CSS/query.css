@@ -53,6 +53,7 @@
   .open {
     pointer-events: none;
     opacity: 1 !important;
+    touch-action: none;
     transition: opacity 0.5s ease-in-out; }
 
   .transition {
@@ -60,10 +61,12 @@
 
   .nav {
     justify-content: space-between;
-    pointer-events: none; }
+    pointer-events: none;
+    touch-action: none; }
     .nav__title {
       align-self: self-start;
-      pointer-events: auto; }
+      pointer-events: auto;
+      touch-action: auto; }
     .nav__list {
       display: block;
       flex: auto;
@@ -71,6 +74,7 @@
       pointer-events: auto;
       position: relative;
       text-align: end;
+      touch-action: auto;
       width: 100%; }
       .nav__list--options {
         margin: 1rem; }
@@ -81,7 +85,8 @@
         padding: 0.3rem 0.8rem; }
     .nav__icon {
       align-self: self-start;
-      pointer-events: auto; }
+      pointer-events: auto;
+      touch-action: auto; }
       .nav__icon--open {
         display: block;
         transition: display 0.5s ease-in-out; }

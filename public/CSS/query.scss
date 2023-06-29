@@ -130,6 +130,7 @@ $font-size: (
   .open {
     pointer-events: none;
     opacity: 1 !important;
+    touch-action: none;
     transition: opacity 0.5s ease-in-out;
   }
 
@@ -140,9 +141,12 @@ $font-size: (
   .nav {
     justify-content: space-between;
     pointer-events: none;
+    touch-action: none;
+
     &__title {
       align-self: self-start;
       pointer-events: auto;
+      touch-action: auto;
     }
 
     &__list {
@@ -152,6 +156,7 @@ $font-size: (
       pointer-events: auto;
       position: relative;
       text-align: end;
+      touch-action: auto;
       width: 100%;
 
       &--options {
@@ -172,6 +177,7 @@ $font-size: (
     &__icon {
       align-self: self-start;
       pointer-events: auto;
+      touch-action: auto;
 
       &--open {
         display: block;
